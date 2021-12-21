@@ -1,0 +1,22 @@
+<h2>Productos</h2>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
+<!--Sentencia For Angular-->
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + ' details'"
+    [routerLink]="['/products', product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
+  <!--Sentencia If Angular-->
+  <p *ngIf="product.description">Descripción: {{ product.description }}</p>
+  <!--Llamada de funcion por click-->
+  <button (click)="share()">Compartir</button>
+  <!--Llamada de un componente-->
+  <app-product-alerts [product]="product" (notify)="onNotify()"> </app-product-alerts>
+</div>
